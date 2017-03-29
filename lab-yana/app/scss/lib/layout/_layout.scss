@@ -1,1 +1,36 @@
 @import '../theme/_vars.scss';
+
+body {
+  margin-top: 45px;
+  width: 435px;
+  height: 810px;
+  font-family: $fontStyle;
+}
+
+header {
+  width: 100%;
+  color: $white;
+  background-color: $highlightBackground;
+  font-size: 18px;
+  ul {
+    padding: 15px;
+  }
+}
+
+main {
+  background-color: $mainBackground;
+  width: 433px;
+  border-left: 1px solid $footerBackground;
+  border-right: 1px solid $footerBackground;
+}
+
+footer {
+  width: 100%;
+  background-color: $footerBackground;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+img {
+  width: 25px;
+}
