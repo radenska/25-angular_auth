@@ -33,7 +33,7 @@ function authService($q, $log, $http, $window) {
     let config = {
       headers: {
         'Content-Type': 'application/json',
-        Accept: 'application/json'
+        'Accept': 'application/json'
       }
     };
 
@@ -61,7 +61,7 @@ function authService($q, $log, $http, $window) {
     };
     return $http.get(url, config)
     .then(response => {
-      $log.log('success', response.data);
+      $log.log('success:', response.data);
       return setToken(response.data);
     })
     .catch(err => {
@@ -69,6 +69,7 @@ function authService($q, $log, $http, $window) {
       return $q.reject(new Error('login failed'));
     });
   };
+
   service.logout = function() {
     $log.debug('authService.logout');
 

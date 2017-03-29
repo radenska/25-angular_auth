@@ -12,12 +12,12 @@ function SignupController($log, $location, authService) {
   $log.debug('SignupController');
 
   authService.getToken()
-  .then( () => $location.url('/home'));
+  .then( () => { $location.url('/home') });
 
   this.signup = function(user) {
     $log.debug('SignupController.signup');
 
-    authService.sigup(user)
+    authService.signup(user)
     .then( () => $location.url('/home'));
   };
 }

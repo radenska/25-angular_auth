@@ -26,12 +26,12 @@ context = require.context('./service/', true, /\.js$/),
 context.keys().forEach(key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
-  cfgram.controller(name, module);
+  cfgram.service(name, module);
 });
 
 context = require.context('./component/', true, /\.js$/),
 context.keys().forEach(key => {
   let name = camelcase(path.basename(key, '.js'));
   let module = context(key);
-  cfgram.controller(name, module);
+  cfgram.component(name, module);
 });
