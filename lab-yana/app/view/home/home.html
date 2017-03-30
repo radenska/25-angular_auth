@@ -4,9 +4,9 @@
     <ul>
       <article>Galleries</article>
       <li ng-repeat="gallery in homeCtrl.galleries">
-        <span>name: {{gallery.name}}</span>
-        <span>description: {{gallery.desc}}</span>
-        <span>id: {{gallery._id}}</span>
+        <span><p>name:</p> {{gallery.name}}</span>
+        <span><p>description:</p> {{gallery.desc}}</span>
+        <span><button ng-click="homeCtrl.deleteGallery(gallery._id)">delete gallery</button></span>
       </li>
     </ul>
   </div>

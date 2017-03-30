@@ -18,4 +18,10 @@ function HomeController($log, $rootScope, galleryService) {
 
   this.fetchGalleries();
   $rootScope.$on('$locationChangeSuccess', () => this.fetchGalleries());
+
+  this.deleteGallery = function(galleryID) {
+    $log.debug('HomeController.deleteGallery');
+
+    galleryService.deleteGallery(galleryID);
+  }
 }
