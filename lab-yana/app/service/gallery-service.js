@@ -47,7 +47,7 @@ function galleryService($q, $log, $http, authService) {
           Accept: 'application/json'
         }
       };
-      return $http.get(url, config)
+      return $http.get(url, config);
     })
     .then(response => {
       $log.log('galleries fetched');
@@ -72,20 +72,20 @@ function galleryService($q, $log, $http, authService) {
           Accept: 'application/json'
         }
       };
-      $http.delete(url, config)
-      .then( () => {
-        $log.log('gallery removed');
-        service.galleries.some((gallery, index) => {
-          if (gallery._id === galleryID) {
-            service.galleries.splice(index, 1);
-            return true;
-          }
-        });
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
+      return $http.delete(url, config);
+    })
+    .then( () => {
+      $log.log('gallery removed');
+      service.galleries.some((gallery, index) => {
+        if (gallery._id === galleryID) {
+          service.galleries.splice(index, 1);
+          return true;
+        }
       });
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
     });
   };
 
@@ -102,20 +102,20 @@ function galleryService($q, $log, $http, authService) {
           Accept: 'application/json'
         }
       };
-      return $http.put(url, update, config)
-      .then(response.data => {
-        $log.log('gallery updated');
-        service.galleries.some((gallery, index) => {
-          if (gallery._id === galleryID) {
-            service.galleries[index] = response.data;
-            return true;
-          }
-        });
-      })
-      .catch(err => {
-        $log.error(err.message);
-        return $q.reject(err);
+      return $http.put(url, update, config);
+    })
+    .then(response => {
+      $log.log('gallery updated');
+      service.galleries.some((gallery, index) => {
+        if (gallery._id === galleryID) {
+          service.galleries[index] = response.data;
+          return true;
+        }
       });
+    })
+    .catch(err => {
+      $log.error(err.message);
+      return $q.reject(err);
     });
   }
   return service;

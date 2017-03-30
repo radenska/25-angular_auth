@@ -7,8 +7,19 @@
         <span><p>name:</p> {{gallery.name}}</span>
         <span><p>description:</p> {{gallery.desc}}</span>
         <span>
-          <button ng-click="homeCtrl.deleteGallery(gallery._id)">delete gallery</button ng-click="">
-          <update-gallery></update-gallery>
+          <button class="smallButt" ng-click="homeCtrl.deleteGallery(gallery._id)">delete gallery</button ng-click="">
+          <button class="smallButt" ng-click="selected.value = $index" ng-hide="selected.value === $index">update gallery</button>
+          <section class="update-gallery" ng-if="selected.value === $index">
+            <form name="updateGalleryForm" class="update-gallery-form">
+              <fieldset>
+                <input name="name" class="input-std" type="text" placeholder="updated name"
+                ng-model="homeCtrl.update.name">
+                <input name="desc" class="input-std" type="text" placeholder="updated description"
+                ng-model="homeCtrl.update.desc">
+              </fieldset>
+              <button ng-click="homeCtrl.updateGallery(gallery._id)" class="btn-std">update gallery</button>
+            </form>
+          </section>
         </span>
       </li>
     </ul>

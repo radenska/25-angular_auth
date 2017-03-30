@@ -1,5 +1,16 @@
 @import '../../scss/lib/theme/_vars.scss';
 
+
+.update-gallery {
+    width: 95%;
+  button {
+    left: 210px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 7px;
+  }
+}
+
 .container {
   width: 94%;
   margin: auto;
