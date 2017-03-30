@@ -1,12 +1,13 @@
 @import '../../../scss/lib/theme/_vars.scss';
-//
-// .create-gallery {
-//   article {
-//     color: $highlightBackground;
-//     font-size: 14px;
-//     padding-top: 30px;
-//   }
-//   form {
-//     margin-right: 3%;
-//   }
-// }
+
+.create-gallery {
+  img {
+    width: 25px;
+  }
+  button {
+    left: 254px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 7px;
+  }
+}
