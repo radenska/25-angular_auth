@@ -89,7 +89,7 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.updateGallery = function(update, galleryID) {
+  service.updateGallery = function(galleryID, update) {
     $log.debug('galleryService.updateGallery');
 
     authService.getToken()

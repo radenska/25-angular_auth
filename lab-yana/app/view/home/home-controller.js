@@ -19,22 +19,4 @@ function HomeController($log, $rootScope, galleryService) {
   this.fetchGalleries();
   $rootScope.$on('$locationChangeSuccess', () => this.fetchGalleries());
 
-  this.deleteGallery = function(galleryID) {
-    $log.debug('HomeController.deleteGallery');
-
-    galleryService.deleteGallery(galleryID);
-  };
-
-  this.updateGallery = function(galleryID) {
-    $log.debug('HomeController.updateGallery');
-
-    let update = {
-      name: this.update.name,
-      desc: this.update.desc
-    };
-
-    this.showUpdate = false;
-    galleryService.updateGallery(update, galleryID);
-
-  };
 }
