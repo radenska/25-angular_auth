@@ -9,6 +9,7 @@ const camelcase = require('camelcase');
 const uiRouter = require('angular-ui-router');
 const ngTouch = require('angular-touch');
 const ngAnimate = require('angular-animate');
+const ngFileUpload = require('ng-file-upload');
 
 const cfgram = angular.module('cfgram', [ngTouch, ngAnimate, uiRouter]);
 
