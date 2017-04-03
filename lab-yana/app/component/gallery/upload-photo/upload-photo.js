@@ -10,17 +10,18 @@ module.exports = {
     gallery: '<'
   }
 };
+
 function UploadPhotoController($log, photoService) {
   $log.debug('UploadPhotoController');
 
   this.photo = {};
 
   this.uploadPhoto = function() {
-    photoService.uploadGalleryPic(this.gallery)
+    photoService.uploadGalleryPhoto(this.gallery, this.photo)
     then( () => {
       this.photo.name = null;
       this.photo.desc = null;
       this.photo.file = null;
     });
-  }
+  };
 }

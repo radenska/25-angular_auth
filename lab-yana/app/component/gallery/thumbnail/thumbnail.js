@@ -11,7 +11,7 @@ module.exports = {
   }
 };
 
-function ThumbnailController($q, $log, $updatethingy, authService) {
+function ThumbnailController($log, photoService, authService) {
   $log.debug('ThumbnailController');
 
   this.deletePhoto = function() {
