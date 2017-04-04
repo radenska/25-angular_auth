@@ -1,14 +1,14 @@
 // Karma configuration
 // Generated on Wed Mar 22 2017 12:51:00 GMT-0700 (PDT)
 
-const webpackConfig = require('./webpack.config.js');
-webpackConfig.entry = {};
+const webpack = require('./webpack.config.js');
+delete webpack.entry;
 
 module.exports = function(config) {
   config.set({
 
     // to wire to webpack
-    webpack: webpackConfig,
+    webpack,
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -21,7 +21,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*-test.js'
+      'app/entry.js',
+      'test/**/*-test.js',
+      'node_modules/angular-mocks/angular-mocks.js'
     ],
 
 
@@ -33,7 +35,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*-test.js': ['webpack']
+      'test/**/*-test.js': ['webpack'],
+      'app/entry.js': ['webpack']
     },
 
 
@@ -62,7 +65,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
