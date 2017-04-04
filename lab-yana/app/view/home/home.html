@@ -6,7 +6,7 @@
       <gallery-item
       ng-repeat="instance in homeCtrl.galleries"
       gallery="instance"
-      delete-done="homeCtrl.galleryDeleteDone"
+      delete-done="homeCtrl.galleryDeleteDone(galleryData)"
       ng-click="homeCtrl.currentGallery = instance">
       </gallery-item>
     </ul>

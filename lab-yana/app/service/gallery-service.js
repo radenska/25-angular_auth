@@ -89,7 +89,7 @@ function galleryService($q, $log, $http, authService) {
     });
   };
 
-  service.updateGallery = function(galleryID, update) {
+  service.updateGallery = function(galleryID, galleryData) {
     $log.debug('galleryService.updateGallery');
 
     authService.getToken()
@@ -102,7 +102,7 @@ function galleryService($q, $log, $http, authService) {
           Accept: 'application/json'
         }
       };
-      return $http.put(url, update, config);
+      return $http.put(url, galleryData, config);
     })
     .then(response => {
       $log.log('gallery updated');

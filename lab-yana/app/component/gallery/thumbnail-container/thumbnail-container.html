@@ -1,7 +1,7 @@
 <div class="thumbnail-container">
-  <h3>{{ThumbnailContainerCtrl.gallery.name}}
+  <h3>{{ThumbnailContainerCtrl.gallery.name}}</h3>
   <upload-photo gallery="thumbnailContainerCtrl.gallery"></upload-photo>
-  <ul class>
+  <div class="thumbs">
     <thumbnail ng-repeat="item in thumbnailContainerCtrl.gallery.photos" photo="item"></thumbnail>
-  </ul>
+  </div>
 </div>

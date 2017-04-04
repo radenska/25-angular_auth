@@ -10,9 +10,9 @@ function photoService($q, $log, $http, Upload, authService) {
   service.uploadGalleryPhoto = function(galleryData, photoData) {
     $log.debug('photoService.uploadGalleryPhoto');
 
-    authService.getToken()
-    .then( token => {
-      url = `${__API_URL__}/app/gallery/${galleryData._id}/pic`;
+    return authService.getToken()
+    .then(token => {
+      let url = `${__API_URL__}/api/gallery/${galleryData._id}/pic`;
       let headers = {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json'

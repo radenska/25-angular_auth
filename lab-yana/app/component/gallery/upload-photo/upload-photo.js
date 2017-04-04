@@ -17,8 +17,10 @@ function UploadPhotoController($log, photoService) {
   this.photo = {};
 
   this.uploadPhoto = function() {
+    $log.debug('UploadPhotoController.uploadPhoto');
+
     photoService.uploadGalleryPhoto(this.gallery, this.photo)
-    then( () => {
+    .then( () => {
       this.photo.name = null;
       this.photo.desc = null;
       this.photo.file = null;
