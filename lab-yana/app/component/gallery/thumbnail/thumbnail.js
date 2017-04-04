@@ -4,18 +4,20 @@ require('./_thumbnail.scss');
 
 module.exports = {
   template: require('./thumbnail.html'),
-  controller: ['$log', 'photoService', ThumbnailController],
+  controller: ['$log', 'picService', ThumbnailController],
   controllerAs: 'thumbnailCtrl',
   bindings: {
-    photo: '<'
+    pic: '<',
+    gallery: '<'
   }
 };
 
-function ThumbnailController($log, photoService) {
+function ThumbnailController($log, picService) {
   $log.debug('ThumbnailController');
 
-  this.deletePhoto = function() {
-    $log.debug('ThumbnailController.deletePhoto');
-  }
+  this.deletePic = function() {
+    $log.debug('ThumbnailController.deletePic');
 
+    picService.deleteGalleryPic(this.gallery, this.pic);
+  };
 }
