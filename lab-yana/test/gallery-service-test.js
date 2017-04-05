@@ -35,51 +35,12 @@ describe('Gallery Service', function() {
       this.$rootScope.$apply();
     });
   });
-  describe('galleryService.fetchGalleries', () => {
-    it('should get a gallery', () => {
-      let headers = {
-        Accept: 'application/json',
-        Authorization: 'Bearer test token'
-      };
-      this.$httpBackend.expectGET('http://localhost:3003/api/gallery', headers)
-      .respond(200, {
-        _id: '42',
-        username: 'exampleuser',
-        name: 'example gallery name',
-        desc: 'example gallery description',
-        pics: []
-      });
-      this.$rootScope.$apply();
-    });
-  });
-  describe('galleryService.updateGallery', () => {
-    it('should update a gallery', () => {
-      let galleryData = {
-        name: 'new gallery name',
-        desc: 'new gallery description'
-      };
-      let config = {
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          Authorization: 'Bearer test token'
-        }
-      };
-      this.$httpBackend.expectPUT('http://localhost:3003/api/gallery/', galleryData, config)
-      .respond(200, {
-        _id: '42',
-        username: 'exampleuser',
-        name: 'new gallery name',
-        desc: 'new gallery description',
-        pics: []
-      });
-      this.$rootScope.$apply();
-    });
-  });
   describe('galleryService.deleteGallery', () => {
     it('should delete a gallery', () => {
       this.$httpBackend.expectDELETE('http://localhost:3003/api/gallery/42')
       .respond(204);
+      this.galleryService.deleteGallery('42');
+      expect(this.galleryService.galleries.length).toEqual(0);
       this.$rootScope.$apply();
     });
   });
