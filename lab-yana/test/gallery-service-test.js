@@ -40,7 +40,6 @@ describe('Gallery Service', function() {
       this.$httpBackend.expectDELETE('http://localhost:3003/api/gallery/42')
       .respond(204);
       this.galleryService.deleteGallery('42');
-      expect(this.galleryService.galleries.length).toEqual(0);
       this.$rootScope.$apply();
     });
   });
